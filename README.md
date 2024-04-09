@@ -40,7 +40,8 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
    --staging_location gs://<GCS folder>/ \
    --template_location gs://<GCS template folder>/<template name> \
     --sdk_container_image <GCP region>-docker.pkg.dev/<GCP_Project>/<template name>/<docker name>:<tag> \
-    --sdk_location=container ```
+    --sdk_location=container
+```
 
    2 Copy es2bq_metadata to  gs://<GCS template folder>
 
