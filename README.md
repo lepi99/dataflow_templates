@@ -1,36 +1,60 @@
-# Dataflow Template Repository
+# Dataflow Template: ES2BQ
 
 ## Description
-A repository for creating custom Apache Beam Dataflow templates
 
-* **Template 1: ES2BQ** 
-  * Reusable Python Dataflow template for migrating data from Elasticsearch to BigQuery. Includes features like dynamic segmentation, dynamic filtering and configurable write dispositions for seamless and adaptable pipelines.
+This repository contains the ES2BQ Apache Beam Dataflow template designed to streamline data transfers from Elasticsearch to BigQuery. 
+
+**Key Features:**
+
+* Dynamic segmentation
+* Dynamic filtering
+* Configurable write dispositions
+* Schema auto-detection
+
+## Parameters
+
+| Parameter            | Description                                               | Example                                    |
+|----------------------|-----------------------------------------------------------|--------------------------------------------|
+| es_endpoint          | The URL endpoint of your Elasticsearch instance           ||
+| es_index             | The name of the Elasticsearch index to query              ||
+| es_query             | Elasticsearch query filters (see Elasticsearch documentation) |'[{ "match_all": {} }]'|
+| username             | Elastic Username ||
+| password             | Elastic password ||
+| bq_schema_string     | JSON string defining the BigQuery table schema            | '[{ "name": "field_1", "type": "STRING" }]' | 
+| bq_project           | Google Cloud project ID containing the BigQuery dataset   | 'your-gcp-project-id'                      |
+| bq_dataset           | Name of the BigQuery dataset                              | 'your_dataset_name'                        |
+| bq_table             | Name of the target BigQuery table                         | 'your_target_table'                        |
+| bq_write_disposition | WRITE_TRUNCATE, WRITE_APPEND, WRITE_EMPTY             | 'WRITE_APPEND'                             |
+| field_to_segment_by | Field name to paralilise elastic records             |                             |
 
 
 ## Usage Instructions
 
-1. Create Template
-  `
- #1.1 create/update template
+### Creating the Template
+ 1 create/update template
+```bash
+
   python es2bq.py \
    --runner DataflowRunner \
    --project <GCP_Project> \
    --staging_location gs://<GCS folder>/ \
    --template_location gs://<GCS template folder>/<template name> \
     --sdk_container_image <GCP region>-docker.pkg.dev/<GCP_Project>/<template name>/<docker name>:<tag> \
-    --sdk_location=container`
+    --sdk_location=container ```
 
-   1.2 Copy es2bq_metadata to  gs://<GCS template folder>
+   2 Copy es2bq_metadata to  gs://<GCS template folder>
 
-3. CREATE JOB FROM TEMPLATE
-   2.1 Go to "CREATE JOB FROM TEMPLATE"
+### Running the Template
 
-   2.2 Dataflow template - choose "Custom Tamplate"
+  A) CREATE JOB FROM TEMPLATE
+   1 Go to "CREATE JOB FROM TEMPLATE"
 
-   2.3 Tamplate path: gs://<GCS template folder>
+   2 Dataflow template - choose "Custom Tamplate"
+
+   3 Tamplate path: gs://<GCS template folder>
    
-4. Run locally from template: (you need to have )
-  `
+ B) Run locally from template: (you need to have )
+  ```bash
     python -m es2bq \
       --region <GCP region> \
       --runner DataflowRunner \
@@ -51,7 +75,8 @@ A repository for creating custom Apache Beam Dataflow templates
       --bq_table=<GCP table> \
       --bq_write_disposition=WRITE_TRUNCATE \
       --field_to_segment_by=_Not_given_
-  `
+  ```
+
 6. Run template from request
 
   
