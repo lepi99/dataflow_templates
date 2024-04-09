@@ -10,7 +10,8 @@ A repository for creating custom Apache Beam Dataflow templates
 ## Usage Instructions
 
 1. Create Template
-  ` #1.1 create/update template
+  `
+ #1.1 create/update template
   python es2bq.py \
    --runner DataflowRunner \
    --project <GCP_Project> \
@@ -21,15 +22,16 @@ A repository for creating custom Apache Beam Dataflow templates
 
    1.2 Copy es2bq_metadata to  gs://<GCS template folder>
 
-2. CREATE JOB FROM TEMPLATE
+3. CREATE JOB FROM TEMPLATE
    2.1 Go to "CREATE JOB FROM TEMPLATE"
 
    2.2 Dataflow template - choose "Custom Tamplate"
 
    2.3 Tamplate path: gs://<GCS template folder>
    
-3. Run locally from template: (you need to have )
-  `python -m es2bq \
+4. Run locally from template: (you need to have )
+  `
+    python -m es2bq \
       --region <GCP region> \
       --runner DataflowRunner \
       --project <GCP_Project> \
@@ -50,6 +52,6 @@ A repository for creating custom Apache Beam Dataflow templates
       --bq_write_disposition=WRITE_TRUNCATE \
       --field_to_segment_by=_Not_given_
   `
-4. Run template from request
+6. Run template from request
 
   
