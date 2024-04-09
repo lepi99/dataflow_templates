@@ -52,7 +52,7 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
 
    2 Dataflow template - choose "Custom Tamplate"
 
-   3 Tamplate path: gs://<GCS template folder>
+   3 Template path: gs://`<GCS template folder>`
    
  B) Run locally from template: (you need to have )
   ```bash
