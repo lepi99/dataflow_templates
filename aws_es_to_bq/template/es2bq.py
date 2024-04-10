@@ -2,8 +2,6 @@ import json
 import logging
 import re
 import typing
-
-
 import apache_beam as beam
 from apache_beam import FlatMap, Map, Create
 from apache_beam.options.value_provider import ValueProvider
@@ -12,12 +10,12 @@ from apache_beam.runners import DataflowRunner
 from apache_beam.io.gcp.bigquery_tools import parse_table_schema_from_json
 from elasticsearch import Elasticsearch,helpers
 
-project= "GCP project_id"
+project= "GCP project_id" # Replace with the actual ID of your Google Cloud project. 
 
 logging.getLogger().setLevel(logging.INFO)
 options = PipelineOptions(
     project=project,
-    region="GCP region",
+    region="GCP region", # Replace with the appropriate Google Cloud region.
     runner="DataflowRunner"
 )
 
@@ -25,6 +23,7 @@ options = PipelineOptions(
 class RuntimeOptions(beam.options.pipeline_options.PipelineOptions):
     @classmethod
     def _add_argparse_args(cls, parser):
+        # ... Adds command-line arguments for all the configurable parameters...
         parser.add_value_provider_argument('--es_endpoint', type=str, help='AWS Elasticsearch endpoint', default='not_given')
         parser.add_value_provider_argument('--es_index', type=str, help='Elasticsearch index name', default='not_given')
         parser.add_value_provider_argument('--es_query', type=str, help='Optional Elasticsearch query', default='[{ "match_all": {} }]')
@@ -62,7 +61,7 @@ class FetchUniqueValuesDoFn(beam.DoFn):
         print("es_query")
         print(es_query.get())
         es_client = Elasticsearch([es_endpoint.get()], http_auth=(username.get(), password.get()))
-        # Aggregation query to get unique values
+        # Aggregation query logic to get unique values
         if field == "_Not_given_":
             logging.info("Print the unique value string _Not_given_")
             yield ("_Not_given_")
@@ -92,6 +91,7 @@ class FetchUniqueValuesDoFn(beam.DoFn):
 class ReadFromElasticsearchDoFn(beam.DoFn):
     def process(self, key_val, es_endpoint, index, username, password,es_query, field):
         from elasticsearch import Elasticsearch, helpers
+        #Elasticsearch configuration and query logic
         logging.getLogger().setLevel(logging.INFO)
         es_config = {'hosts': [es_endpoint.get()]}
         es_config['http_auth'] = (username.get(), password.get())
@@ -179,11 +179,13 @@ def choose_write_disposition(bq_write_disposition):
 def format_table_reference(bq_table, bq_project, bq_dataset):
     return lambda element: f"{bq_project.get()}:{bq_dataset.get()}.{bq_table.get()}"
 
+# Pipeline Construction
 pipeline = beam.Pipeline(DataflowRunner(), options)
 
 
 data = (
         pipeline
+        # ... (Transformations) ... 
         | beam.Create(["Your Query / source object qualifier goes here"])
 
 
