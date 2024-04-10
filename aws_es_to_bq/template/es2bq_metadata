@@ -1,0 +1,82 @@
+{ "name": "Elastic to BQ Python flex template",
+  "description": "Elastic to BQ Python python flex template.",
+  "parameters": [
+    {
+      "name": "es_endpoint",
+      "label": "AWS Elasticsearch Endpoint",
+      "helpText": "The URL of your Elasticsearch endpoint (e.g., https://example.com:9200)",
+      "paramType": "TEXT",
+      "isOptional": false 
+    },
+    {
+      "name": "es_index",
+      "label": "Elasticsearch Index Name",
+      "helpText": "The name of the Elasticsearch index to query",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    {
+      "name": "es_query",
+      "label": "Elasticsearch Query (JSON)",
+      "helpText": "A JSON-formatted Elasticsearch query. For a full match, use '{\"query\": {\"match_all\": {}}}'",
+      "paramType": "TEXT",
+      "isOptional": true
+    },
+    {
+      "name": "bq_schema_string",
+      "label": "BigQuery Table Schema",
+      "helpText": "A JSON-formatted BigQuery schema string. Example: '[{\"name\": \"field1\", \"type\": \"STRING\"}, ...]'",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    {
+      "name": "username",
+      "label": "Elasticsearch Username",
+      "helpText": "Elasticsearch Username",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    {
+      "name": "password",
+      "label": "Elasticsearch Password",
+      "helpText": "Elasticsearch Password",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    { 
+      "name": "bq_project",
+      "label": "BigQuery Project ID",
+      "helpText": "The ID of your BigQuery project",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    { 
+      "name": "bq_dataset",
+      "label": "BigQuery Dataset Name",
+      "helpText": "The Dataset Name of your BigQuery table",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    { 
+      "name": "bq_table",
+      "label": "BigQuery Table Name",
+      "helpText": "The table Name where the data will be saved",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    { 
+      "name": "field_to_segment_by",
+      "label": "Field Name to segment the data",
+      "helpText": "Field Name to segment the data - use '_Not_given_' to not set one",
+      "paramType": "TEXT",
+      "isOptional": false
+    },
+    {
+      "name": "bq_write_disposition",
+      "label": "Write Disposition option",
+      "helpText": "BigQuery write disposition (WRITE_TRUNCATE, WRITE_APPEND)",
+      "paramType": "TEXT",
+      "isOptional": false
+    }
+  ]
+}

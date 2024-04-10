@@ -1,0 +1,4 @@
+apache-beam[gcp]  # Core Apache Beam & GCP dependencies
+google-cloud-bigquery  # For interacting with BigQuery
+elasticsearch==7.17.9  # Optional, if your Elasticsearch version needs a separate client
+build
