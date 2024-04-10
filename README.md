@@ -6,14 +6,14 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
 
 ## Prerequisites
 
-* Python 3.x  - tested for Python 3.9
-* ElasticSearch - tested for ElasticSearch 7.17.x
-* Google Cloud BigQuery Python client library (`google-cloud-bigquery`)
-* apache-beam[gcp]
+* Python 3.x - tested for Python 3.9
+* ElasticSearch - tested for ElasticSearch 7.17.x (A distributed, open-source search and analytics engine)
+* Google Cloud BigQuery Python client library (`google-cloud-bigquery`) (A client library for interacting with Google BigQuery)
+* apache-beam[gcp] 
 
 
 
-**Key Features:**
+## Key Features
 
 * Dynamic segmentation
 * Dynamic filtering
