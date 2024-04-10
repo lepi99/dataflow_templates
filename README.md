@@ -4,6 +4,15 @@
 
 This repository contains the ES2BQ Apache Beam Dataflow template designed to streamline data transfers from Elasticsearch to BigQuery. 
 
+## Prerequisites
+
+* Python 3.x  - tested for Python 3.9
+* ElasticSearch - tested for ElasticSearch 7.17.x
+* Google Cloud BigQuery Python client library (`google-cloud-bigquery`)
+* apache-beam[gcp]
+
+
+
 **Key Features:**
 
 * Dynamic segmentation
@@ -78,6 +87,6 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
       --field_to_segment_by=_Not_given_
   ```
 
-6. Run template from request
+C) Run template from request
 
   
