@@ -62,7 +62,7 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
 
    2. Dataflow template - choose "Custom Tamplate"
 
-   3. Template path: gs://`<GCS template folder>`
+   3. Template path: gs://`<GCS template folder>` placeholder should be replaced with the actual Google Cloud Storage bucket and folder where you've uploaded your template. For example: `gs://my-dataflow-templates/es2bq-templates`
    
  B) Run locally from template: (you need to have )
   ```bash
