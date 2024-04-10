@@ -40,7 +40,7 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
 ## Usage Instructions
 
 ### Creating the Template
- 1 create/update template
+ 1. create/update template
 ```bash
 
   python es2bq.py \
@@ -52,16 +52,17 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
     --sdk_location=container
 ```
 
-   2 Copy es2bq_metadata to  gs://<GCS template folder>
+   2. Copy es2bq_metadata to  gs://<GCS template folder>
 
 ### Running the Template
 
   A) CREATE JOB FROM TEMPLATE
-   1 Go to "CREATE JOB FROM TEMPLATE"
+  
+   1. Go to "CREATE JOB FROM TEMPLATE"
 
-   2 Dataflow template - choose "Custom Tamplate"
+   2. Dataflow template - choose "Custom Tamplate"
 
-   3 Template path: gs://`<GCS template folder>`
+   3. Template path: gs://`<GCS template folder>`
    
  B) Run locally from template: (you need to have )
   ```bash
