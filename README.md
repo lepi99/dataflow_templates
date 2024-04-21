@@ -90,6 +90,7 @@ This repository contains the ES2BQ Apache Beam Dataflow template designed to str
 
 C) Run template from request
 
+
 ## Future work
 
 * Schema Handling: Integrate the bq_schema_string parameter for direct control over the BigQuery table schema instead of relying solely on 'SCHEMA_AUTODETECT'. This will provide users with more flexibility in defining their target table structure.
