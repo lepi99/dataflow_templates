@@ -94,4 +94,4 @@ C) Run template from request
 ## Future work
 
 * Schema Handling: Integrate the bq_schema_string parameter for direct control over the BigQuery table schema instead of relying solely on 'SCHEMA_AUTODETECT'. This will provide users with more flexibility in defining their target table structure.
-* Editing Instructions: Add a section within the README that specifies which parameters the user should modify directly within the es2bq.py file to customize their template usage.
+
